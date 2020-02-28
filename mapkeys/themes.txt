@@ -1,0 +1,29 @@
+!tested and working with Creo 2.0 M240
+!this code allow you to quickly change your color schemes
+!the following options must be in your config.sup (preferred) or config.pro file
+!-------------------------------------
+!theme mapkeys
+mapkey col0 @MAPKEY_NAMEApplys the Custom color scheme.;\
+mapkey(continued) @MAPKEY_LABELCustom Color Scheme;~ Command `ProCmdOptEnvDlg` ;\
+mapkey(continued) ~ Open `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Close `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Select `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu` 1 \
+mapkey(continued) `Custom`;~ Activate `ribbon_options_dialog` `OkPshBtn`;
+mapkey col1 @MAPKEY_NAMEApplys the PTC default color scheme.;\
+mapkey(continued) @MAPKEY_LABELDefault Color Scheme;~ Command `ProCmdOptEnvDlg` ;\
+mapkey(continued) ~ Open `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Close `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Select `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu` 1 `1`;\
+mapkey(continued) ~ Activate `ribbon_options_dialog` `OkPshBtn`;
+mapkey col2 @MAPKEY_NAMEApplys the dark scheme.;\
+mapkey(continued) @MAPKEY_LABELDark Color Scheme;~ Command `ProCmdOptEnvDlg` ;\
+mapkey(continued) ~ Open `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Close `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Select `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu` 1 `5`;\
+mapkey(continued) ~ Activate `ribbon_options_dialog` `OkPshBtn`;
+mapkey col3 @MAPKEY_NAMEApplys the Light color scheme.;\
+mapkey(continued) @MAPKEY_LABELLight Color Scheme;~ Command `ProCmdOptEnvDlg` ;\
+mapkey(continued) ~ Open `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Close `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Select `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu` 1 `2`;\
+mapkey(continued) ~ Activate `ribbon_options_dialog` `OkPshBtn`;

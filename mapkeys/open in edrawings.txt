@@ -1,0 +1,21 @@
+!tested and working with Creo 2.0 M240
+!this code will open the active model in solidworks if installed in the default location
+!the following options must be in your config.sup (preferred) or config.pro file
+!this mapkey requires that open_in_SW.bat is placed in the C:\PTC\Creo\batch\ directory
+!-------------------------------------
+!oisw
+mapkey oisw @MAPKEY_NAMEOpen the active model in SOLIDWORKS.;\
+mapkey(continued) @MAPKEY_LABELOpen in SOLIDWORKS;~ Command `ProCmdInfoModel` ;\
+mapkey(continued) ~ Trail `main_dlg_cur` `bwTheBrowser` `Load Complete`;\
+mapkey(continued) ~ Command `ProCmdBrowserSave` ;\
+mapkey(continued) ~ LButtonArm `file_saveas` `tb_EMBED_BROWSER_TB_SAB_LAYOUT` 3 383 9 0;\
+mapkey(continued) ~ LButtonDisarm `file_saveas` `tb_EMBED_BROWSER_TB_SAB_LAYOUT` 3 383 9 0;\
+mapkey(continued) ~ LButtonActivate `file_saveas` `tb_EMBED_BROWSER_TB_SAB_LAYOUT` 3 383 9 0;\
+mapkey(continued) ~ Update `file_saveas` `opt_EMBED_BROWSER_TB_SAB_LAYOUT` \
+mapkey(continued) `C:\\PTC\\data\\Temp`;\
+mapkey(continued) ~ Activate `file_saveas` `opt_EMBED_BROWSER_TB_SAB_LAYOUT`;\
+mapkey(continued) ~ Activate `file_saveas` `OK`;\
+mapkey(continued) ~ Activate `main_dlg_cur` `EMBED_BROWSER Close`;\
+mapkey(continued) ~ Timer `UI Desktop` `UI Desktop` `EmbedBrowserTimer`;\
+mapkey(continued) @SYSTEM\@echo off\ncall "C:\\PTC\\Creo\\batch\\open_in_SW.bat" \n \
+mapkey(continued) "ed"\nexit /b 0;

@@ -1,0 +1,25 @@
+!tested and working with Creo 2.0 M240
+!this code will set or clear the custom colors from your user config.pro
+!the following options must be in your config.sup (preferred) or config.pro file
+!this mapkey requires that custom_color.bat is placed in the C:\PTC\Creo\batch\ directory
+!-------------------------------------
+!custom colors set
+mapkey col_ @MAPKEY_NAMESet and save your custom colors.;\
+mapkey(continued) @MAPKEY_LABELSave Custom Colors;~ Command `ProCmdOptEnvDlg` ;\
+mapkey(continued) @MANUAL_PAUSEChoose the color settings you wish to change.\n\nThen click \
+mapkey(continued) "Resume" in this dialog box.;\
+mapkey(continued) ~ Activate `ribbon_options_dialog` `colors_layouts.Save`;\
+mapkey(continued) ~ Activate `file_saveas` `mydocs_pb`;~ Activate `file_saveas` `OK`;\
+mapkey(continued) ~ Activate `ribbon_options_dialog` `OkPshBtn`;\
+mapkey(continued) @SYSTEM\@echo off\ncall "C:\\PTC\\Creo\batch\\ \
+mapkey(continued) custom_color.bat"\nexit /b 0;
+!custom colors clear
+mapkey colx @MAPKEY_NAMEClear your saved custom colors.;\
+mapkey(continued) @MAPKEY_LABELClear Custom Colors;\
+mapkey(continued) ~ Command `ProCmdOptEnvDlg` ;\
+mapkey(continued) ~ Open `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Close `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu`;\
+mapkey(continued) ~ Select `ribbon_options_dialog` `colors_layouts.Color_scheme_optMenu` 1 `5`;\
+mapkey(continued) ~ Activate `ribbon_options_dialog` `OkPshBtn`;\
+mapkey(continued) @SYSTEM\@echo off\ncall "C:\\PTC\\Creo\batch\\ \
+mapkey(continued) custom_color.bat" "clear"\nexit /b 0;

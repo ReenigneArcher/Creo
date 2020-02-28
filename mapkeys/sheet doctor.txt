@@ -1,0 +1,36 @@
+!tested and working with Creo 2.0 M240
+!this code will replace the detail file on a drawing and then open a window to replace the format for all sheets
+!the following options must be in your config.sup (preferred) or config.pro file
+!change the directory options as required
+!find and replace detail.dtl and replace with the name of your detail file
+!-------------------------------------
+pro_dtl_setup_dir C:\PTC\Creo\Details\
+pro_format_dir C:\PTC\Creo\Formats\
+
+!sh_doctor
+mapkey sh_doctor @MAPKEY_NAMERemove the current and format and replace it.;\
+mapkey(continued) @MAPKEY_LABELUpdate Sheet Format;\
+mapkey(continued) ~ Close `main_dlg_cur` `appl_casc`;~ Command `ProCmdDwgProperties` ;\
+mapkey(continued) ~ Activate `mdlprops_dlg` `OPTIONS_lay_Controls.push_Change.lay_instance`;\
+mapkey(continued) ~ FocusOut `preferences` `InputOpt`;~ Activate `preferences` `Open`;\
+mapkey(continued) ~ Trail `UI Desktop` `UI Desktop` `DLG_PREVIEW_POST` `file_open`;\
+mapkey(continued) ~ Activate `file_open` `PRO_DTL_SETUP_DIR_shortcut`;\
+mapkey(continued) ~ Trail `UI Desktop` `UI Desktop` `PREVIEW_POPUP_TIMER` \
+mapkey(continued) `file_open:Ph_list.Filelist:<NULL>`;\
+mapkey(continued) ~ Update `file_open` `Inputname` `detail.dtl`;\
+mapkey(continued) ~ Command `ProFileSelPushOpen@context_dlg_open_cmd` ;\
+mapkey(continued) ~ Activate `preferences` `ApplySave`;~ FocusOut `preferences` `InputOpt`;\
+mapkey(continued) ~ Activate `preferences` `Close`;~ Activate `mdlprops_dlg` `DlgClose_push`;\
+mapkey(continued) ~ Close `main_dlg_cur` `appl_casc`;~ Command `ProCmdMCModelCHECK` ;;\
+mapkey(continued) ~ Activate `main_dlg_cur` `EMBED_BROWSER Close`;\
+mapkey(continued) ~ Timer `UI Desktop` `UI Desktop` `EmbedBrowserTimer`;\
+mapkey(continued) ~ RButtonArm `main_dlg_cur` `switcher_lay_buttons_lay_ph.page_0` 0 ``;\
+mapkey(continued) ~ Trail `UI Desktop` `UI Desktop` `SmartTabs` `selectButton \
+mapkey(continued) main_dlg_cur@switcher_lay_buttons_lay page_0 0`;\
+mapkey(continued) ~ PopupOver `main_dlg_cur` `PM_switcher_lay_buttons_lay_ph.tab_container` 1 \
+mapkey(continued) `switcher_lay_buttons_lay_ph.page_0`;~ Command `ProCmdDwgSelectAllSheets` ;\
+mapkey(continued) ~ Command `ProCmdDwgPageSetup` ;\
+mapkey(continued) @MANUAL_PAUSESelect the format for each sheet individually.\nThen click \
+mapkey(continued) Resume.;~ Activate `pagesetup` `OK`;\
+mapkey(continued) ~ Activate `keep_format_tables` `RemoveAll`;~ Activate `0_std_confirm` `OK`;\
+mapkey(continued) ~ Activate `main_dlg_cur` `user_custom_page_205193584_control_btn` 1;

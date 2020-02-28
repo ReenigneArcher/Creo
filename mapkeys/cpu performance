@@ -1,0 +1,26 @@
+!tested and working with Creo 2.0 M240
+!this code will set or clear the cpu performance setting in user config.pro
+!the following options must be in your config.sup (preferred) or config.pro file
+!this mapkey requires that performance.bat is placed in the C:\PTC\Creo\batch\ directory
+!-------------------------------------
+!performance mapkeys
+!default performance
+mapkey per0 @MAPKEY_NAMEClears the CPUS_TO_USE option;\
+mapkey(continued) @MAPKEY_LABELDefault Performance;\
+mapkey(continued) @SYSTEM\@echo off\ncall "C:\PTC\Creo\batch\\ \
+mapkey(continued) performance.bat" "0"\nexit /b 0;
+!high performance
+mapkey per1 @MAPKEY_NAMESets the CPUS_TO_USE option to max;\
+mapkey(continued) @MAPKEY_LABELHigh Performance;\
+mapkey(continued) @SYSTEM\@echo off\ncall "C:\PTC\Creo\batch\\ \
+mapkey(continued) performance.bat" "1"\nexit /b 0;
+!medium performance
+mapkey per2 @MAPKEY_NAMESets the CPUS_TO_USE option to half;\
+mapkey(continued) @MAPKEY_LABELMedium Performance;\
+mapkey(continued) @SYSTEM\@echo off\ncall "C:\PTC\Creo\batch\\ \
+mapkey(continued) performance.bat" "2"\nexit /b 0;
+!low performance
+mapkey per3 @MAPKEY_NAMESets the CPUS_TO_USE option to one third;\
+mapkey(continued) @MAPKEY_LABELLow Performance;\
+mapkey(continued) @SYSTEM\@echo off\ncall "C:\PTC\Creo\batch\\ \
+mapkey(continued) performance.bat" "3"\nexit /b 0;
